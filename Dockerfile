@@ -47,5 +47,8 @@ RUN addgroup -g 1001 -S nodejs && \
 
 USER nodejs
 
+RUN yarn sequelize db:create --env=production-ssl-disabled
+RUN yarn sequelize db:migrate --env=production-ssl-disabled
+
 EXPOSE 3000
 CMD ["yarn", "start"]
